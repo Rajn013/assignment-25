@@ -1,0 +1,35 @@
+1.What is the difference between enclosing a list comprehension in square brackets and parentheses?
+
+ans   enclosing a list comprehension in square brackets creates a list, whereas enclosing it in parentheses creates a generator expression.
+
+A list comprehension is an expression that generates a new list by evaluating an expression or iterating over an iterable. When the comprehension is enclosed in square brackets, Python creates a new list object and adds each element to it. This list is fully constructed in memory and returned to the caller.
+
+A generator expression, on the other hand, generates a sequence of values on the fly as they are requested, without constructing the entire sequence in memory at once. When the comprehension is enclosed in parentheses, Python creates a generator object that can be iterated over to produce each value in the sequence.
+
+
+2 What is the relationship between generators and iterators?
+
+ans   An iterator is an object that represents a stream of data, which can be traversed using the next() function. Iterators are defined by classes that implement the methods __iter__() and __next__(). They provide a way to iterate over a sequence of values without having to load all of them into memory at once.
+
+      Generators, on the other hand, are a way to create iterators using a special type of function. Instead of returning a value, a generator yields a value using the yield keyword. Each time the yield keyword is encountered, the function returns the current value and saves its state. The next time the function is called, it resumes execution from where it left off, using the saved state.
+.
+
+3.What are the signs that a function is a generator function?
+
+ans    The function contains a yield statement: A generator function is a function that contains at least one yield statement. The yield statement suspends the function's execution and sends a value  back to the caller, but unlike a return statement, the function's state is saved so that it can be resumed later.
+
+       The function returns an iterator: When a generator function is called, it returns an iterator object instead of executing immediately. This iterator can be used to iterate over the values produced by the generator function using the next() function, or by using a for loop.
+
+4.What is the purpose of a yield statement?
+
+ans  the yield statement is used in a generator function to return a value to the caller, while also maintaining the state of the function so that it can be resumed from where it was paused. This allows for the efficient generation of large sequences of values.
+
+5.What is the relationship between map calls and list comprehensions? Make a comparison and contrast between the two.
+
+ans        Both map calls and list comprehensions are used to apply a function to a sequence of elements, but they have some differences in their syntax and behavior.
+
+           A map call takes a function and an iterable as arguments, and returns a new iterable that applies the function to each element of the original iterable. for syntax:
+             map(function, iterable)
+           
+            On the other hand, a list comprehension is a concise way to create a new list by applying an expression to each element of an iterable.for syntax:
+             [expression for item in iterable]
